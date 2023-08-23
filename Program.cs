@@ -11,12 +11,28 @@
 // }
 
 int[,] matrix = new int[3, 4];
-for(int i = 0; i < matrix.GetLength(0); i++) //Параметр 0 определяет, что это строки
+void InputArray(int[,] array)
 {
-    for(int j = 0; j < matrix.GetLength(1); j++) //Параметр 1 определяет, что это столбцы
+    for(int i = 0; i < array.GetLength(0); i++)
     {
-        matrix[i, j] = new Random().Next(1, 10);
-        System.Console.Write($"{matrix[i, j]} ");
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(1, 10);
+        }
     }
-    System.Console.WriteLine();
 }
+void PrintArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            System.Console.Write($"{array[i, j]} ");
+        }
+    System.Console.WriteLine();
+    }
+}
+PrintArray(matrix);
+System.Console.WriteLine();
+InputArray(matrix);
+PrintArray(matrix);
