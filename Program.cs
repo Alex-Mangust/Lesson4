@@ -10,29 +10,101 @@
 //     }
 // }
 
-int[,] matrix = new int[3, 4];
-void InputArray(int[,] array)
+// int[,] matrix = new int[3, 4];
+// void InputArray(int[,] array)
+// {
+//     for(int i = 0; i < array.GetLength(0); i++) //Параметр 0 определяет, что это строки
+//     {
+//         for(int j = 0; j < array.GetLength(1); j++) //Параметр 1 определяет, что это столбцы
+//         {
+//             array[i, j] = new Random().Next(1, 10);
+//         }
+//     }
+// }
+// void PrintArray(int[,] array)
+// {
+//     for(int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < array.GetLength(1); j++)
+//         {
+//             System.Console.Write($"{array[i, j]} ");
+//         }
+//     System.Console.WriteLine();
+//     }
+// }
+// PrintArray(matrix);
+// System.Console.WriteLine();
+// InputArray(matrix);
+// PrintArray(matrix);
+
+
+// Как представить черно-белое изображение (закрашиваем рисунок)
+using System.Globalization;
+
+int[,] pic = new int[,]
 {
-    for(int i = 0; i < array.GetLength(0); i++)
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 },
+    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 },
+    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 },
+    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0 },
+    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 },
+    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 },
+    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0 },
+    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 },
+    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 },
+    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 },
+    {0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 },
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+};
+// for(int i = 0; i < pic.GetLength(0); i++)
+// {
+//     for(int j = 0; j < pic.GetLength(1); j++)
+//     {
+//         if(pic[i, j] == 0)
+//         {
+//             System.Console.Write("  ");
+//         }
+//         else
+//         {
+//             System.Console.Write(pic[i, j] + " ");
+//         }
+//     }
+//     System.Console.WriteLine();
+// }
+void PrintImage(int[,] image)
+{
+    for(int i = 0; i < image.GetLength(0); i++)
     {
-        for(int j = 0; j < array.GetLength(1); j++)
+        for(int j = 0; j < image.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(1, 10);
+            if(image[i,j] == 0) Console.Write("  ");
+            else Console.Write(" +");
         }
+        Console.WriteLine();
     }
 }
-void PrintArray(int[,] array)
+void FillImage(int row, int col)
 {
-    for(int i = 0; i < array.GetLength(0); i++)
+    if(pic[row, col] == 0)
     {
-        for(int j = 0; j < array.GetLength(1); j++)
-        {
-            System.Console.Write($"{array[i, j]} ");
-        }
-    System.Console.WriteLine();
+        pic[row, col] = 1;
+        FillImage(row-1, col);
+        FillImage(row, col-1);
+        FillImage(row+1, col);
+        FillImage(row, col+1);
     }
 }
-PrintArray(matrix);
-System.Console.WriteLine();
-InputArray(matrix);
-PrintArray(matrix);
+PrintImage(pic);
+FillImage(13, 13);
+PrintImage(pic);
