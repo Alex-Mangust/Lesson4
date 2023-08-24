@@ -96,28 +96,40 @@
 
 // Ищем факториал
 
-double Factorial(int num)
-{
-    if(num < 1)
-    {
-        return 0;
-    }
-    else if(num == 1)
-    {
-        return 1;
-    }
-    else
-    {
-        return num * Factorial(num-1);
-    }
-}
-System.Console.WriteLine
-("Данная программа ищет факториалы всех чисел в диапазоне, указанном пользователем.");
-System.Console.Write("Введите начальное число: ");
-int numStart = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("Введите крайнее число: ");
-int numEnd = Convert.ToInt32(Console.ReadLine());
-for(; numStart <= numEnd; numStart++)
-{
-    System.Console.WriteLine($"{numStart}! = {Factorial(numStart)}");
-}
+// double Factorial(int num)
+// {
+//     if(num < 1)
+//     {
+//         return 0;
+//     }
+//     else if(num == 1)
+//     {
+//         return 1;
+//     }
+//     else
+//     {
+//         return num * Factorial(num-1);
+//     }
+// }
+// System.Console.WriteLine
+// ("Данная программа ищет факториалы всех чисел в диапазоне, указанном пользователем.");
+// System.Console.Write("Введите начальное число: ");
+// int numStart = Convert.ToInt32(Console.ReadLine());
+// System.Console.Write("Введите крайнее число: ");
+// int numEnd = Convert.ToInt32(Console.ReadLine());
+// for(; numStart <= numEnd; numStart++)
+// {
+//     System.Console.WriteLine($"{numStart}! = {Factorial(numStart)}");
+// }
+
+// Ищем число Фибоначчи
+
+// int Fibonachi(int num)
+// {
+//     if(num == 1 || num == 2) return 1;
+//     else return Fibonachi(num - 1) + Fibonachi(num - 2);
+// }
+// for(int i = 1; i < 40; i++)
+// {
+//     System.Console.WriteLine($"F{i} = {Fibonachi(i)}");
+// }
